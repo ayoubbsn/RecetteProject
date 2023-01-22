@@ -1,0 +1,44 @@
+#table-container {
+    width: 500px;
+}
+#sup-container {
+    display: flex;
+    justify-content: center;
+}
+.table {
+    border: solid;
+}
+
+td input[type=text] {
+    display: none;
+}
+tr input[type=submit] {
+    background-color: red;
+    height: 30px;
+    padding: 5px;
+}
+input[type=submit]:hover {
+    background-color: rgb(126, 14, 14);
+}
+#button-holder {
+    margin-left: 400px;
+    margin-bottom: 10px;
+}
+
+#form-holder {
+    width: 500px;
+}
+#paragraphe {
+    height: 250px;
+}
+
+.sub-form-container {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    gap: 15px;
+}
+
+.sub-form {
+    padding: 10px;
+}
