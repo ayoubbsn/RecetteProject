@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/../Config/DB.php";
-
+require_once __DIR__ . "/IngredientsModel.php";
 
 class SeasonModel
 {
@@ -26,5 +26,14 @@ class SeasonModel
         return $id;
     }
 
+    public static function GetRecetteSeason($idRecetteIns){
+        $connection = DB::connect();
+        $stmt = $connection->prepare(" SELECT nom FROM ( SELECT id_saison , MAX(nb) as ma FROM  ( SELECT id_saison , COUNT(*) nb FROM (recette JOIN recette_ing ON recette.id = recette_ing.id_recette JOIN saison_ing ON recette_ing.id_ing = saison_ing.id_ing) WHERE recette.id = ? GROUP BY id_saison ) as t1 ) as t2 JOIN saison ON id_saison = id");
+        $stmt->bindParam(1, $idRecetteIns);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $connection = $stmt = null;
+        return $result;  
+    }
 
 }

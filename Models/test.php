@@ -15,7 +15,6 @@ require_once __DIR__ . "/IngredientsModel.php";
 require_once __DIR__ . "/IdeaRecetteModel.php";
 
 
-$data = FeteModel::getRecetteFete(81);
+$data = SeasonModel::GetRecetteSeason(80);
 echo "<p> " . $data["url"] . " </p> <br>";
 var_dump($data);
-

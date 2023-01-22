@@ -27,6 +27,7 @@ while (isset($_POST['ingredients' . $j]) && isset($_POST['quantity' . $j])) {
     $j++;
 }
 
+$j = 1;
 while(isset($_POST['fetes' . $j])){
     FeteModel::insertRecetteFete($idRecetteIns, $_POST['fetes' . $j]);
     $j++;

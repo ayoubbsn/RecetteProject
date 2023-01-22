@@ -1,6 +1,9 @@
 <?php
-require_once __DIR__ . "/Header.php";
+require_once __DIR__ . "./Header.php";
 require_once __DIR__ . "/../../Controllers/AccueilController.php";
+
+$categorie = isset($_GET['categorie']) ? $_GET['categorie'] : null;
+
 ?>
 
 <html>
@@ -10,7 +13,7 @@ require_once __DIR__ . "/../../Controllers/AccueilController.php";
     <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
     <link rel='stylesheet' href='./css/Common.css'>
     <title>
-        Healthy
+        Categorie
     </title>
 </head>
 
@@ -18,17 +21,14 @@ require_once __DIR__ . "/../../Controllers/AccueilController.php";
     <?php
     Header::Show();
     ?>
-       <center>  <h1> Les Ingredients healthy </h1> </center>
-        <div id="npage-card-container">
-            <?php AccueilController::loadIngredientHealthy() ?>
-        </div>
 
+    <div id="npage-card-container" >
+        <?php
+        AccueilController::LoadAllCards($categorie)
+        ?>
 
-
-
-
-
+    </div>
 
 </body>
 
-</html>
+</html>s

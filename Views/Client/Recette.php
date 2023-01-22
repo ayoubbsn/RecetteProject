@@ -26,7 +26,8 @@ $ingredients = IngredientsModel::loadIngredientsRecette($idrecette);
 $url = ImageVideoModel::getImagePath($idrecette);
 $fetes = FeteModel::getRecetteFete($idrecette);
 $fetes = isset($fetes['id_fete']) ? $fetes['id_fete'] : null;
-
+$saison = isset(SeasonModel::GetRecetteSeason($idrecette)[0]) ? SeasonModel::GetRecetteSeason($idrecette)[0] : NULL;
+$saison = isset($saison['nom']) ? $saison['nom'] : null;
 ?>
 
 <!DOCTYPE html>
@@ -72,13 +73,13 @@ $fetes = isset($fetes['id_fete']) ? $fetes['id_fete'] : null;
       <div class="chips">
         <h4>Saisons: </h4>
         <div class="chip">
-          $saison
+         <?php echo $saison ?>
         </div>
       </div>
       <div class="chips">
         <h4>Fêtes: </h4>
         <div class="chip">
-          <?php $fetes ?>
+          <?php echo $fetes ?>
         </div>
       </div>
       <p class="desc">

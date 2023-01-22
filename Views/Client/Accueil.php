@@ -24,7 +24,7 @@ require_once __DIR__ . "/../../Controllers/AccueilController.php";
 
         <?php
         AccueilController::LoadAllDiapo();
-        
+
         ?>
 
 
@@ -69,7 +69,9 @@ require_once __DIR__ . "/../../Controllers/AccueilController.php";
     <div id="card-container">
 
         <center>
-            <h2> Recettes de la categorie des plats </h2> 
+            <a href="./Categorie.php?categorie=1">
+                <h2> Recettes de la categorie des plats </h2>
+            </a>
         </center>
 
         <div class="categorie">
@@ -78,7 +80,9 @@ require_once __DIR__ . "/../../Controllers/AccueilController.php";
             ?>
         </div>
         <center>
-            <h2> Recettes de la categorie du dessert </h2>
+            <a href="./Categorie.php?categorie=2">
+                <h2> Recettes de la categorie du dessert </h2>
+            </a>
         </center>
 
         <div class="categorie">
@@ -88,7 +92,9 @@ require_once __DIR__ . "/../../Controllers/AccueilController.php";
         </div>
 
         <center>
-            <h2> Recettes de la categorie des boissons </h2>
+            <a href="./Categorie.php?categorie=3">
+                <h2> Recettes de la categorie des boissons </h2>
+            </a>
         </center>
 
         <div class="categorie">
@@ -97,7 +103,9 @@ require_once __DIR__ . "/../../Controllers/AccueilController.php";
             ?>
         </div>
         <center>
-            <h2> Recettes de la categorie des entrées </h2>
+            <a href="./Categorie.php?categorie=4">
+                <h2> Recettes de la categorie des entrées </h2>
+            </a>
         </center>
 
         <div class="categorie">
