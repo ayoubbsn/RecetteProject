@@ -20,7 +20,7 @@ require_once __DIR__ . "/../../Controllers/AccueilController.php";
     ?>
 
     <center><h1> les ingredients </h1></center>
-    <div id="ing-card-container">
+    <div id="npage-card-container">
         <?php
         AccueilController::loadIngredientsCards();
 

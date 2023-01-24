@@ -1,11 +1,47 @@
 .filterBy {
     display: flex;
     justify-content: center;
+    margin: 20px;
 }
+
 .filter-option {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
-    
+    flex-direction: column;
+
 }
+.filters-container {
+    display: flex;
+    justify-content:center;
+    align-content: center;
+    gap: 60px;
+    flex-wrap:wrap;
+    width: 750px;
+    padding: 18px;
+    padding-bottom: 30px;
+    border: solid;
+    border-radius: 10px;
+    text-align:center;
+}
+.fo {
+    display:flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.cal-in {
+    display: flex;
+    justify-content:flex-start;
+    gap:10px;
+    width:50px; 
+}
+.cal-in input {
+    width: 80px;
+}
+.filter-search {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+} 

@@ -42,7 +42,7 @@ $i = 2;
                     <div class="sup-container">
                         <div class="sub-container">
                             <label for="tempsprep">Temps de preparation:</label>
-                            <input type="time" id="tempsprep" name="tempsprep">
+                            <input type="time" min="00:00" max="23:59" id="tempsprep" name="tempsprep">
                         </div>
                         <div class="sub-container">
                             <label for="tempcui">Temps de cuisson:</label>

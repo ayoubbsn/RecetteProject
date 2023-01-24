@@ -3,6 +3,7 @@ require_once __DIR__ . "/../Models/CardModel.php";
 require_once __DIR__ . "/../Models/CarouselModel.php";
 require_once __DIR__ . "/../Models/IngredientsModel.php";
 require_once __DIR__ . "/../Models/ImageVIdeoModel.php";
+require_once __DIR__ . "/../Models/SeasonModel.php";
 
 
 class AccueilController {
@@ -20,14 +21,21 @@ class AccueilController {
     </div>  "; 
     }
 
-    public static function LoadCard($imagePath ,$idrecette , $nomrecette, $categorie , $description ,$tempstotal ,$calories , $difficulte ){
+    public static function LoadCard($imagePath ,$idrecette , $nomrecette, $categorie , $description ,$tempstotal ,$calories , $difficulte ,$tempsprep , $tempscuiss){
         $imagePath = substr($imagePath, 1);
         $imagePath = "../../Controllers$imagePath";
-        echo "<a href=\"./recette.php?idrecette=$idrecette&nomrecette=$nomrecette&categorie=$categorie&description=$description&tempstotal=$tempstotal&calories=$calories&difficulte=$difficulte\">
+        $saison = isset(SeasonModel::GetRecetteSeason($idrecette)[0]) ? SeasonModel::GetRecetteSeason($idrecette)[0] : NULL;
+        $saison = isset($saison['nom']) ? $saison['nom'] : null;
+        echo "<a id='$idrecette' href=\"./recette.php?idrecette=$idrecette&nomrecette=$nomrecette&categorie=$categorie&description=$description&tempstotal=$tempstotal&calories=$calories&difficulte=$difficulte\">
                 <div class='card'>
                     <img src='$imagePath' alt='Avatar'>
                     <div class='container'>
-                        <h4><b>$nomrecette</b></h4>
+                        <h4 class='nomrecette $idrecette' ><b>$nomrecette</b></h4>
+                        <p class='hidden tempsprep $idrecette' >$tempsprep</p>
+                        <p class='hidden tempscuiss $idrecette' >$tempscuiss</p>
+                        <p class='hidden tempstotal $idrecette' >$tempstotal</p>
+                        <p class='hidden calories $idrecette' > $calories </p>
+                        <p class='hidden season $idrecette' > $saison </p>
                         <p>Star Rating</p>
                         <div class='star'>
                             <span id='s1' class='fa fa-star checked'></span>
@@ -52,7 +60,7 @@ class AccueilController {
     public static function LoadAllCards($idCat){
         $data = CardModel::LoadRecetteLAll($idCat);
         foreach ($data as $key => $val) {
-            AccueilController::LoadCard($val['url'],$val['id'],$val['nom_recette'],$idCat,$val['description'],$val['temps_total'],$val['estim_calories'],$val['difficulte']);
+            AccueilController::LoadCard($val['url'],$val['id'],$val['nom_recette'],$idCat,$val['description'],$val['temps_total'],$val['estim_calories'],$val['difficulte'],$val['temps_prep'],$val['temps_cuisson']);
         }
     }
 
@@ -100,7 +108,7 @@ class AccueilController {
         $data = CardModel::LoadRecetteSeason($season);
         foreach ($data as $key => $val) {
             $url = ImageVideoModel::getImagePath($val['id'])[0]['url'];
-            AccueilController::LoadCard($url,$val['id'],$val['nom_recette'],$val['id_categorie'],$val['description'],$val['temps_total'],$val['estim_calories'],$val['difficulte']);
+            AccueilController::LoadCard($url,$val['id'],$val['nom_recette'],$val['id_categorie'],$val['description'],$val['temps_total'],$val['estim_calories'],$val['difficulte'],$val['temps_prep'],$val['temps_cuisson']);
         }
     }
 
@@ -120,8 +128,3 @@ class AccueilController {
 
 
 }
-
-
-
-
-?>

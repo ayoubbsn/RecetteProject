@@ -26,6 +26,7 @@ require_once __DIR__ . "/../../Controllers/AdminG-RecetteController.php";
 
             <label for="ingredients"> <b> Les ingredients :</b></label>
             <button id="ingredients-button" type="button" class="btn btn-outline-success btn-sm">Ajouter les ingredients</button>
+            <input type="submit" id="valider" value="Valider">
             <div id="ing-sup-container">
 
                 <div class="ingredients-container">
