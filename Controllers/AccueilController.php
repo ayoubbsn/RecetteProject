@@ -26,7 +26,7 @@ class AccueilController {
         $imagePath = "../../Controllers$imagePath";
         $saison = isset(SeasonModel::GetRecetteSeason($idrecette)[0]) ? SeasonModel::GetRecetteSeason($idrecette)[0] : NULL;
         $saison = isset($saison['nom']) ? $saison['nom'] : null;
-        echo "<a id='$idrecette' href=\"./recette.php?idrecette=$idrecette&nomrecette=$nomrecette&categorie=$categorie&description=$description&tempstotal=$tempstotal&calories=$calories&difficulte=$difficulte\">
+        echo "<a id='$idrecette'class='ahold' href=\"./recette.php?idrecette=$idrecette&nomrecette=$nomrecette&categorie=$categorie&description=$description&tempstotal=$tempstotal&calories=$calories&difficulte=$difficulte\">
                 <div class='card'>
                     <img src='$imagePath' alt='Avatar'>
                     <div class='container'>
