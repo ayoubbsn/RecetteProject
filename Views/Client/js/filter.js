@@ -10,6 +10,7 @@ function filter(classname, value) {
     a = $("." + classname);
     for (let i = 0; i < a.length; i++) {
         id = $(a[i]).attr("class").split(/\s+/)[2];
+        console.log(value,a[i].innerHTML);
         if (a[i].innerHTML.toUpperCase().indexOf(value.toUpperCase()) == -1) {
             console.log("id :" + value.toUpperCase());
             $("#" + id).addClass("hidden");
@@ -134,6 +135,13 @@ $('#saisons').change(function () {
     filter("season", value);
 })
 
+
+
+$("#fete").change(function() {
+    let value = $(this).val();
+    console.log(value);
+    filter("fetes", value);
+})
 
 $('#gsearch').keyup(function () {
     let value = $(this).val();

@@ -24,8 +24,10 @@ $difficulte = isset($_GET['difficulte']) ? $_GET['difficulte'] : null;
 $steps = StepsModel::loadSteps($idrecette);
 $ingredients = IngredientsModel::loadIngredientsRecette($idrecette);
 $url = ImageVideoModel::getImagePath($idrecette);
-$fetes = FeteModel::getRecetteFete($idrecette);
-$fetes = isset($fetes['id_fete']) ? $fetes['id_fete'] : null;
+
+$fetesArr =  isset(FeteModel::getRecetteFete($idrecette)[0]) ? FeteModel::getRecetteFete($idrecette)[0] : null;
+$fetes = isset($fetesArr['nom']) ? $fetesArr['nom'] : null;
+
 $saison = isset(SeasonModel::GetRecetteSeason($idrecette)[0]) ? SeasonModel::GetRecetteSeason($idrecette)[0] : NULL;
 $saison = isset($saison['nom']) ? $saison['nom'] : null;
 ?>
@@ -73,13 +75,13 @@ $saison = isset($saison['nom']) ? $saison['nom'] : null;
       <div class="chips">
         <h4>Saisons: </h4>
         <div class="chip">
-         <?php echo $saison ?>
+          <?php echo $saison ?>
         </div>
       </div>
       <div class="chips">
         <h4>Fêtes: </h4>
         <div class="chip">
-          <?php echo $fetes ?>
+          <?php echo  $fetes ?>
         </div>
       </div>
       <p class="desc">
@@ -88,7 +90,9 @@ $saison = isset($saison['nom']) ? $saison['nom'] : null;
       <div class="additional-info">
         <div class="additional-info-section">
           <p class="first"> <?php echo substr($tempstotal, 3) ?> </p>
-          <center><p class="second">mins</p></center>
+          <center>
+            <p class="second">mins</p>
+          </center>
         </div>
 
         <div class="additional-info-section">

@@ -20,10 +20,10 @@ require_once __DIR__."/../../Controllers/CarouselController.php"
         <div class="container">
             <form action="./../../Controllers/CarouselFormController.php" method="post">
                 <label for="fname">Le lien :</label><br>
-                <input type="text" id="lien" name="lien" value=""><br>
+                <input type="text" id="lien" name="lien" value="" placeholder="AbsolutePath" ><br>
 
                 <label for="fname">Le lien d'image :</label><br>
-                <input type="text" id="lienimg" name="lienimg" value=""><br>
+                <input type="text" id="lienimg" name="lienimg" value="" placeholder="Database path"><br>
 
                 <label for="fname">Le titre :</label><br>
                 <input type="text" id="titre" name="titre" value=""><br>

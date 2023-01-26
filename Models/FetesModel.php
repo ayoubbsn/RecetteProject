@@ -26,8 +26,8 @@ class FeteModel {
     public static function getRecetteFete($id)
     {
         $connection = DB::connect();
-        $stmt = $connection->prepare("SELECT id_fete from recette_fetes WHERE id_recette = ? ;");
-        $stmt->bindParam(1, $idrecette);
+        $stmt = $connection->prepare("SELECT nom from recette_fetes JOIN fetes ON recette_fetes.id_fete = fetes.id WHERE id_recette = ? ;");
+        $stmt->bindParam(1, $id);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $connection = $stmt = null;

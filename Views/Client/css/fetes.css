@@ -1,0 +1,20 @@
+.hiddden {
+    display: none;
+}
+.hidden {
+    display: none;
+}
+#supp {
+    margin-top:50px;
+    margin-bottom:50px;
+    display:flex;
+    justify-content: center; 
+    height:30px;
+    align-items: center;
+}
+#fete-container {
+    margin-right:20px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}

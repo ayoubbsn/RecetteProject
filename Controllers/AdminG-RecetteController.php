@@ -25,7 +25,7 @@ class RecetteController
     {
         $data = IngredientsModel::loadIngredients();
         foreach ($data as $key => $val) {
-            echo "<option class='ing-obj'  value=" . $val['id'] . " >" . $val['nom'] . "</option>";
+            echo "<option class='ing-obj'  value=" . $val['id'] . " >".$val['nom']."</option>";
         }
     }
 
@@ -33,7 +33,7 @@ class RecetteController
     {
         $data = FeteModel::getAllFetes();
         foreach ($data as $key => $val) {
-            echo "<option class='fetes-obj'  value=" . $val['id'] . " >" . $val['nom'] . "</option>";
+            echo "<option class='fetes-obj'  value='".$val['nom']."'>".$val['nom']."</option>";
         }
     }
 

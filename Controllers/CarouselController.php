@@ -9,7 +9,7 @@ class CarouselController {
             echo "   
             <tr>
                 <th scope='row'>".$val['id']."</th>
-                <td>".$val['lien']."</td>
+                <td>".substr($val['lien'],0,25)."</td>
                 <td>".$val['url']."</td>
                 <td>    
                     <form action='./../../Controllers/DeleteCarouselController.php' method='post' >

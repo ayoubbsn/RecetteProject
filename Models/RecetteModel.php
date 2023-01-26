@@ -82,4 +82,13 @@ class RecetteModel
         $stmt->execute();
         $connection = null;
     }
+
+    public static function loadRecetteHealthy($idCat){
+        $connection = DB::connect();
+        $stmt = $connection->prepare("SELECT DISTINCT recette.id, nom_recette, description, ADDTIME(temps_prep, temps_cuisson) as temps_total , temps_prep , temps_cuisson , temps_repos , difficulte , estim_calories , url FROM recette JOIN recette_ing ON recette.id = recette_ing.id_recette JOIN image ON recette.id = image.id_recette JOIN ingredients ON recette_ing.id_ing = ingredients.id  WHERE approved like '%1' AND healthy = 1 AND id_categorie = $idCat ");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $connection = $stmt = null;
+        return $result;
+    }
 }
